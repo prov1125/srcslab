@@ -8,6 +8,18 @@
 </head>
 <body class="w3-content" style="max-width:1300px">
 
+<script>
+  function copy(id)
+  {
+    var r = document.createRange();
+    r.selectNode(document.getElementById(id));
+    window.getSelection().removeAllRanges();
+    window.getSelection().addRange(r);
+    document.execCommand('copy');
+    window.getSelection().removeAllRanges();
+  }
+</script>
+
 <!-- First Grid: Menu&About -->
 <div class="w3-row">
   <div class="w3-half w3-black w3-container w3-center" style="height:700px">
@@ -79,8 +91,8 @@
       <h1>구글, MS365 로그인</h1>
       <div class="w3-padding-64">
         <h3>구글, MS365 아이디 형식</h3>
-        <p>(아래 형식을 Ctrl+C[복사]해서 로그인 창에 Ctrl+V[붙여넣기] 해서 사용하세요.)</p><br>
-        <h4><b><u>24sr다섯자리학번@sungri.icems.kr</b></u></h4><br><br>
+        <h4><b><u id='text1'>24sr다섯자리학번@sungri.icems.kr</u></b></h4>
+        <p><button onclick="copy('text1');return false;">ID 복사하기</button></p><br><br>
         <p><button type="button" class="w3-button w3-teal" onclick="window.open('https://account.google.com')">구글 로그인 하러 가기</button>
         <p><button type="button" class="w3-button w3-teal" onclick="window.open('https://office.com')">MS365 로그인 하러 가기</button>
       </div>
