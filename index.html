@@ -8,6 +8,22 @@
 </head>
 <body class="w3-content" style="max-width:1300px">
 
+<style>
+  .clock {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      color: #17D4FE;
+      font-size: 60px;
+      font-family: Orbitron;
+      letter-spacing: 7px;
+
+
+
+  }
+</style>
+  
 <script>
   function copy(id)
   {
@@ -22,6 +38,36 @@
   function btn(sample){
     alert(sample);
   }
+
+  function showTime(){
+    var date = new Date();
+    var h = date.getHours(); // 0 - 23
+    var m = date.getMinutes(); // 0 - 59
+    var s = date.getSeconds(); // 0 - 59
+    var session = "AM";
+
+    if(h == 0){
+        h = 12;
+    }
+
+    if(h > 12){
+        h = h - 12;
+        session = "PM";
+    }
+
+    h = (h < 10) ? "0" + h : h;
+    m = (m < 10) ? "0" + m : m;
+    s = (s < 10) ? "0" + s : s;
+
+    var time = h + ":" + m + ":" + s + " " + session;
+    document.getElementById("MyClockDisplay").innerText = time;
+    document.getElementById("MyClockDisplay").textContent = time;
+
+    setTimeout(showTime, 1000);
+
+  }
+
+  showTime();
 </script>
 
 <!-- First Grid: Menu&About -->
@@ -199,6 +245,12 @@
         </tr>
         <tr class="w3-white w3-center">
           <td style="text-align:center"><a href="https://typing.works/" target="_blank">타이핑 웍스</a></td>
+        </tr>
+        <td></td>
+          <td></td>
+        </tr>
+        <tr class="w3-white w3-center">
+          <td style="text-align:center"><a href="https://prov1125.github.io/TypingMaster/" target="_blank">인천성리중 타이핑마스터</a></td>
         </tr>
       </table>
     </div>
